@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+body{
+    margin: 0;
+    padding:0;
+    font-family: "Open Sans", sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #8a9099; /* Tailwind gray-600 */
+    border-radius: 4px;
+  }
+
+  
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
