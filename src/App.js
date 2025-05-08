@@ -44,7 +44,7 @@ function App() {
 
           {isSidebarOpen && (
             <div
-              className={`fixed sidebar dark:bg-secondary-dark-bg bg-yellow-50 h-screen w-72`}
+              className={`sticky sidebar dark:bg-secondary-dark-bg bg-yellow-50 h-screen`}
             >
               <Sidebar setIsOpen={toggleSidebar} />
             </div>
@@ -55,7 +55,7 @@ function App() {
             className={`flex-1 transition-all duration-[500ms] ease-in-out`}
             style={{ transitionProperty: "margin-left" }}
           >
-            <div className="bg-main-bg dark:bg-main-dark-bg navbar w-full sticky top-0 z-10">
+            <div className="dark:bg-main-dark-bg navbar w-full sticky top-0 z-10">
               <Navbar />
             </div>
 

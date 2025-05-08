@@ -6,20 +6,20 @@ function Navbar() {
   const { isSidebarOpen } = state;
 
   return (
-    <nav className="bg-white dark:bg-main-dark-bg p-4 flex justify-between items-center shadow-md">
+    <nav className="bg-white dark:bg-main-dark-bg p-4 ps-10 flex justify-between items-center shadow-md">
       {/* Left Side: List and Search Icons */}
       <div className="flex items-center space-x-4">
         {!isSidebarOpen && (
           <button
             onClick={toggleSidebar}
-            className="text-gray-600 dark:text-gray-300 hover:text-blue-500 focus:outline-none"
+            className="text-blue-500  hover:text-blue-800 focus:outline-none"
             aria-label="Open Sidebar"
           >
             <FaBars size={24} />
           </button>
         )}
         <button
-          className="text-gray-600 dark:text-gray-300 hover:text-blue-500 focus:outline-none"
+          className="text-blue-500  hover:text-blue-800 focus:outline-none"
           aria-label="Search"
         >
           <FaSearch size={24} />
@@ -29,19 +29,19 @@ function Navbar() {
       {/* Right Side: Cart, Message, Notification Icons */}
       <div className="flex items-center space-x-4">
         <button
-          className="text-gray-600 dark:text-gray-300 hover:text-blue-500 focus:outline-none"
+          className="text-blue-500 hover:text-blue-800 focus:outline-none"
           aria-label="Cart"
         >
           <FaShoppingCart size={24} />
         </button>
         <button
-          className="text-gray-600 dark:text-gray-300 hover:text-blue-500 focus:outline-none"
+          className="text-blue-500 hover:text-blue-800 focus:outline-none"
           aria-label="Messages"
         >
           <FaEnvelope size={24} />
         </button>
         <button
-          className="text-gray-600 dark:text-gray-300 hover:text-blue-500 focus:outline-none"
+          className="text-blue-500 hover:text-blue-800 focus:outline-none"
           aria-label="Notifications"
         >
           <FaBell size={24} />
