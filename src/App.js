@@ -25,6 +25,19 @@ function App() {
   const { state, toggleSidebar } = useAppContext();
   const { isSidebarOpen } = state;
 
+  const [screenWidth, setScreenWidth] = useState(0);
+
+  useEffect(()=>{
+    setScreenWidth(window.innerWidth);
+    if(window.innerWidth < 760){
+      toggleSidebar();
+    }
+
+  }, []);
+
+  if(!screenWidth) return null;
+
+
   return (
     <div>
       <BrowserRouter>
@@ -44,7 +57,7 @@ function App() {
             <div
               className={`sticky sidebar dark:bg-secondary-dark-bg bg-yellow-50 h-screen`}
             >
-              <Sidebar setIsOpen={toggleSidebar} />
+              <Sidebar screenWidth={screenWidth} setIsOpen={toggleSidebar} />
             </div>
           )}
 
