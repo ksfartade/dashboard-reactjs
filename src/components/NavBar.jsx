@@ -8,12 +8,11 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from "../data/avatar.jpg";
 import {Cart, Chat, Notification, UserProfile} from ".";
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 function Navbar() {
-  const navigate = useNavigate();
-  const { state, toggleSidebar } = useAppContext();
+  const { state, toggleSidebar, navButtonClick, navButtonClicked } = useAppContext();
   const { isSidebarOpen } = state;
 
   // ⬅️ Universal tooltip button generator
@@ -26,9 +25,6 @@ function Navbar() {
       </TooltipComponent>
     );
   };
-
-  // ⬅️ Generic navigation callback
-  const navigateTo = (path) => () => navigate(path);
 
   return (
     <nav className="bg-white dark:bg-main-dark-bg p-4 ps-10 flex justify-between items-center shadow-md">
@@ -52,22 +48,22 @@ function Navbar() {
       <div className="flex items-center gap-[3vw]">
         {navBarIcon({
           content: "Cart",
-          callBack: navigateTo("/cart"),
+          callBack: () => navButtonClicked("cart"),
           Icon: FiShoppingCart,
         })}
         {navBarIcon({
           content: "Messages",
-          callBack: navigateTo("/messages"),
+          callBack: () => navButtonClicked("chat"),
           Icon: BsChatLeft,
         })}
         {navBarIcon({
           content: "Notifications",
-          callBack: navigateTo("/notifications"),
+          callBack: () => navButtonClicked("notification"),
           Icon: RiNotification3Line,
         })}
         <TooltipComponent content="Profile">
           <button
-            onClick={navigateTo("/profile")}
+            onClick={() => navButtonClicked("profile")}
             className="flex items-center space-x-2 focus:outline-none"
           >
             <img
@@ -80,6 +76,11 @@ function Navbar() {
           </button>
         </TooltipComponent>
       </div>
+
+      {navButtonClick.cart && <Cart/>}
+      {navButtonClick.chat && <Chat/>}
+      {navButtonClick.notification && <Notification/>}
+      {navButtonClick.profile && <UserProfile/>}
     </nav>
   );
 }

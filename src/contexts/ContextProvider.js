@@ -3,6 +3,13 @@ import { createContext, useContext, useState } from 'react';
 // Create the App Context
 const AppContext = createContext();
 
+const initialState = {
+  cart : false,
+  chat: false,
+  notification: false, 
+  profile: false
+}
+
 // App Provider Component
 export const ContextProvider = ({ children }) => {
   // Example state: sidebar status, theme, and user data
@@ -11,6 +18,8 @@ export const ContextProvider = ({ children }) => {
     theme: 'light', // 'light' or 'dark'
     user: null, // e.g., { name: 'John', id: 1 }
   });
+
+  const [navButtonClick, setNavButtonClick] = useState(initialState);
 
   // Generic function to update state
   const updateState = (newState) => {
@@ -21,6 +30,11 @@ export const ContextProvider = ({ children }) => {
   const toggleSidebar = () => {
     updateState({ isSidebarOpen: !state.isSidebarOpen });
   };
+
+  // handling navbutton clicked.
+  const navButtonClicked = (name) => {
+    setNavButtonClick({...initialState, [name]: true});
+  }
 
   const toggleTheme = () => {
     updateState({ theme: state.theme === 'light' ? 'dark' : 'light' });
@@ -34,6 +48,8 @@ export const ContextProvider = ({ children }) => {
         updateState,
         toggleSidebar,
         toggleTheme,
+        navButtonClicked,
+        navButtonClick,
       }}
     >
       {children}

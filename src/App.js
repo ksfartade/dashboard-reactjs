@@ -25,8 +25,6 @@ function App() {
   const { state, toggleSidebar } = useAppContext();
   const { isSidebarOpen } = state;
 
-  console.log("sidebar status: ", isSidebarOpen);
-
   return (
     <div>
       <BrowserRouter>
