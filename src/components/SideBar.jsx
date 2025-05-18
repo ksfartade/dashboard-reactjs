@@ -9,7 +9,6 @@ import {links} from "../data/dummy";
 
 
 const SideBar = ({ screenWidth, setIsOpen }) => {
-  console.log("Inside the sidebar component....");
 
   const sidebarHandle = () => {
     if(screenWidth < 760){
