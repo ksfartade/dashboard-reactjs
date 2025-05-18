@@ -4,6 +4,8 @@ import { earningData, SparklineAreaData, ecomPieChartData, medicalproBranding, s
 import {useAppContext} from '../contexts/ContextProvider';
 import welcomeImg from "../data/welcome-bg.svg";
 import { BsDot } from 'react-icons/bs';
+import { stackedChartData } from '../data/dummy';
+
 
 
 const Ecommerce = () => {
@@ -101,8 +103,8 @@ const Ecommerce = () => {
                 <span className='text-green-400 text-sm'>Budget</span>
             </div>
 
-            <div>
-              <Stacked/>
+            <div className='p-10'>
+              <Stacked height="100%" width="100%" stackedChartData={stackedChartData}/>
             </div>
           </div>
         </div>

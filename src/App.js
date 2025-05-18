@@ -29,7 +29,7 @@ function App() {
 
   useEffect(()=>{
     setScreenWidth(window.innerWidth);
-    if(window.innerWidth < 760){
+    if(window.innerWidth < 960){
       toggleSidebar();
     }
 
