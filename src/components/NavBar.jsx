@@ -27,7 +27,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="bg-white dark:bg-main-dark-bg p-4 ps-10 flex justify-between items-center shadow-md">
+    <nav className=" dark:bg-main-dark-bg p-4 ps-10 flex justify-between items-center shadow-md">
       {/* Left Side: List and Search Icons */}
       <div className="flex items-center gap-[3vw]">
         {!isSidebarOpen &&

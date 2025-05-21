@@ -9,11 +9,9 @@ import { stackedChartData } from '../data/dummy';
 
 
 const Ecommerce = () => {
-  console.log("Inside the ecommerse component....");
-
   return (
-    <div className='w-full min-h-[calc(100vh-100px)]  bg-gray-50'>
-      <div className='m-[2vw] p-5'>
+    <div className='w-full min-h-[calc(100vh-100px)] p-[2vw] '>
+      <div className='p-5'>
         <div
           className="relative bg-no-repeat bg-contain bg-center bg-white h-64 w-full rounded-xl overflow-hidden"
           style={{ backgroundImage: `url(${welcomeImg})` }}

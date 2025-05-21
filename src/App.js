@@ -41,7 +41,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div className="flex relative bg-white">
+        <div className="flex relative bg-gray-50">
           <div className="fixed right-5 bottom-4" style={{ zIndex: "1000" }}>
             <TooltipComponent content="Settings">
               <button
@@ -70,7 +70,7 @@ function App() {
               <Navbar />
             </div>
 
-            <div>
+            <div className=''>
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Ecommerce />} />
