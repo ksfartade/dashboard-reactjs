@@ -61,14 +61,14 @@ function App() {
 
           {/* Main Content (Navbar + Routes) */}
           <div
-            className={`w-[100%] pl-${isSidebarOpen? '[350px]': '0'} transition-all duration-[500ms] ease-in-out`}
+            className={`w-[100%] min-h-screen pl-${isSidebarOpen? '[350px]': '0'} transition-all duration-[500ms] ease-in-out flex flex-col`}
             style={{ transitionProperty: "margin-left" }}
           >
             <div className="dark:bg-main-dark-bg w-full sticky top-0 z-10 bg-white">
               <Navbar />
             </div>
 
-            <div className=''>
+            <div className='flex-1 min-h-full box-border m-[4vw]'>
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Ecommerce />} />

@@ -10,7 +10,7 @@ import { stackedChartData } from '../data/dummy';
 
 const Ecommerce = () => {
   return (
-    <div className='w-full min-h-[calc(100vh-100px)] p-[2vw] '>
+    <div className=''>
       <div className='p-5'>
         <div
           className="relative bg-no-repeat bg-contain bg-center bg-white h-64 w-full rounded-xl overflow-hidden"

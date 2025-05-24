@@ -13,7 +13,7 @@ import {
 
 const Orders = () => {
   return (
-    <div className="w-full box-border  min-h-[calc(100vh-100px)] p-[4vw] flex">
+    <div className="flex">
       <div className="flex-1 p-[4vw] bg-white">
         <Header category="Page" title="Orders" />
 
