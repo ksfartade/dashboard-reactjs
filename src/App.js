@@ -68,7 +68,7 @@ function App() {
               <Navbar />
             </div>
 
-            <div className='flex-1 min-h-full box-border m-[4vw]'>
+            <div className='flex-1 flex flex-col h-full box-border m-[4vw]'>
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Ecommerce />} />
@@ -83,7 +83,7 @@ function App() {
                 <Route path="/kanban" element={<Kanban />} />
                 <Route path="/editor" element={<Editor />} />
                 <Route path="/calendar" element={<Calendar />} />
-                <Route path="/color-picket" element={<ColorPicker />} />
+                <Route path="/color-picker" element={<ColorPicker />} />
 
                 {/* Charts */}
                 <Route path="/line" element={<Line />} />
