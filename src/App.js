@@ -41,7 +41,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div className="flex relative bg-gray-50">
+        <div className="relative bg-gray-50">
           <div className="fixed right-5 bottom-4" style={{ zIndex: "1000" }}>
             <TooltipComponent content="Settings">
               <button
@@ -54,19 +54,17 @@ function App() {
           </div>
 
           {isSidebarOpen && (
-            <div
-              className={`sticky sidebar dark:bg-secondary-dark-bg bg-yellow-50 h-screen`}
-            >
+            <div className={`fixed top-0 left-0 h-full w-[350px] dark:bg-secondary-dark-bg bg-yellow-50`}>
               <Sidebar screenWidth={screenWidth} setIsOpen={toggleSidebar} />
             </div>
           )}
 
           {/* Main Content (Navbar + Routes) */}
           <div
-            className={`flex-1 transition-all duration-[500ms] ease-in-out`}
+            className={`w-[100%] pl-${isSidebarOpen? '[350px]': '0'} transition-all duration-[500ms] ease-in-out`}
             style={{ transitionProperty: "margin-left" }}
           >
-            <div className="dark:bg-main-dark-bg navbar w-full sticky top-0 z-10">
+            <div className="dark:bg-main-dark-bg w-full sticky top-0 z-10 bg-white">
               <Navbar />
             </div>
 

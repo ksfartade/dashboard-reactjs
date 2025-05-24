@@ -17,7 +17,7 @@ const SideBar = ({ screenWidth, setIsOpen }) => {
   };
 
   return (
-    <div className="sticky top-0 left-0 h-full w-[350px] bg-white shadow-lg z-50 py-8 ps-10 flex flex-col justify-start">
+    <div className="bg-white shadow-lg z-50 py-8 ps-10 flex flex-col justify-start h-full overflow-y-auto">
       <div className="flex items-center justify-between mb-6 me-2">
         <NavLink to='/' onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-3xl text-black">
             <SiShopware /> <span className='text-xl text-black font-bold'> Shoppy </span>
