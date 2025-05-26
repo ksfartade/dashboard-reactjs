@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Button = ({text, color, bgColor, hoverColor, px, py, radius, size}) => {
-  console.log("Button text: ", text);
   return (
     <button 
       style={{

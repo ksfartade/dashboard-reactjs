@@ -26,6 +26,7 @@ function App() {
   const { isSidebarOpen } = state;
 
   const [screenWidth, setScreenWidth] = useState(0);
+  const [showSettings, setShowSettings] = useState(false);
 
   useEffect(()=>{
     setScreenWidth(window.innerWidth);
@@ -47,6 +48,9 @@ function App() {
               <button
                 className="text-3xl p-3 hover:drop-shadow-2xl text-white rounded-full flex items-center justify-center"
                 style={{ background: "blue" }}
+                onClick={() => {
+                  setShowSettings((prev) => !prev);
+                }}
               >
                 <FiSettings />
               </button>
@@ -62,11 +66,18 @@ function App() {
           {/* Main Content (Navbar + Routes) */}
           <div
             className={`w-[100%] min-h-screen pl-${isSidebarOpen? '[350px]': '0'} transition-all duration-[500ms] ease-in-out flex flex-col`}
-            style={{ transitionProperty: "margin-left" }}
+            style={{ 
+              paddingLeft: isSidebarOpen? '350px': '0px',
+              transitionProperty: "padding-left" 
+            }}
           >
             <div className="dark:bg-main-dark-bg w-full sticky top-0 z-10 bg-white">
               <Navbar />
             </div>
+
+             {showSettings && (
+              <ThemeSettings onClose={() => setShowSettings(false)} />
+            )}
 
             <div className='flex-1 flex flex-col h-full box-border m-[4vw]'>
               <Routes>

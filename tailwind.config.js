@@ -1,5 +1,6 @@
 
 module.exports = {
+    darkMode: 'class',
     content: [
       "./src/**/*.{js,jsx,ts,tsx}", // Scan all JS/JSX/TS/TSX files in src/
     ],
