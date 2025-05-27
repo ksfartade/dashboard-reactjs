@@ -22,11 +22,10 @@ import {
 import { useAppContext } from "./contexts/ContextProvider";
 
 function App() {
-  const { state, toggleSidebar } = useAppContext();
+  const { state, toggleSidebar, showSettings, setShowSettings} = useAppContext();
   const { isSidebarOpen } = state;
 
   const [screenWidth, setScreenWidth] = useState(0);
-  const [showSettings, setShowSettings] = useState(false);
 
   useEffect(()=>{
     setScreenWidth(window.innerWidth);

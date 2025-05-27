@@ -20,6 +20,22 @@ export const ContextProvider = ({ children }) => {
   });
 
   const [navButtonClick, setNavButtonClick] = useState(initialState);
+  const [showSettings, setShowSettings] = useState(false);
+  const [theme, setTheme] = useState('light');
+  const [currentColor, setCurrentColor] = useState("");
+  
+
+  const setMode = (mode) => {
+    setTheme(mode);
+    localStorage.setItem('theme', mode);
+    document.documentElement.classList.toggle('dark', mode === 'dark');
+    console.log("changing theme: ", theme);
+  }
+
+  const setSelectedColor = (color) => {
+    setCurrentColor(color);
+    localStorage.setItem('currentColor', color);
+  }
 
   // Generic function to update state
   const updateState = (newState) => {
@@ -50,6 +66,12 @@ export const ContextProvider = ({ children }) => {
         toggleTheme,
         navButtonClicked,
         navButtonClick,
+        showSettings,
+        setShowSettings,
+        theme,
+        currentColor,
+        setMode,
+        setSelectedColor,
       }}
     >
       {children}
