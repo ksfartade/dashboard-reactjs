@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Stacked, Pie, Button, SparkLine } from '../components';
 import { earningData, SparklineAreaData, ecomPieChartData, medicalproBranding, stackedCustomSeries, lineChartData} from '../data/dummy';
-import {useAppContext} from '../contexts/ContextProvider';
+import {ContextProvider, useAppContext} from '../contexts/ContextProvider';
 import welcomeImg from "../data/welcome-bg.svg";
 import { BsDot } from 'react-icons/bs';
 import { stackedChartData } from '../data/dummy';
@@ -9,20 +9,21 @@ import { stackedChartData } from '../data/dummy';
 
 
 const Ecommerce = () => {
+  const {currentColor} = useAppContext();
   return (
     <div className=''>
       <div className='p-5'>
         <div
-          className="relative bg-no-repeat bg-contain bg-center bg-white h-64 w-full rounded-xl overflow-hidden"
+          className="relative bg-no-repeat bg-contain bg-center bg-white h-64 w-full rounded-xl overflow-hidden dark:bg-secondary-dark-bg dark:text-white"
           style={{ backgroundImage: `url(${welcomeImg})` }}
           >
           <div className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500 space-y-2">
-            <h2 className="text-xl font-semibold">Earnings</h2>
-            <p className="text-2xl text-black font-bold">$99.99</p>
+            <h2 className="text-xl font-semibold dark:text-white">Earnings</h2>
+            <p className="text-2xl text-black dark:text-white font-bold">$99.99</p>
             <Button 
             text={"Download"}
             color={"white"}
-            bgColor={"#00D1D7"}
+            bgColor={currentColor}
             hoverColor = {"#57a6a8"}
             px={"10px"}
             py={"5px"}
@@ -32,13 +33,14 @@ const Ecommerce = () => {
           </div>
         </div>
 
-        <div className='mt-5 flex w-full flex-wrap gap-2'>
+        <div className='mt-5 flex w-full flex-wrap gap-2 '>
           {
             earningData.map((item, index) =>{
               return <div 
                 key={index}
-                className='flex-1 pt-8 p-5 md:w-80 bg-white rounded-xl'>
-                  <div className='rounded-full p-4 text-3xl inline-block opacity-90 hover:drop-shadow-xl' style={{backgroundColor: item.iconBg, color: item.iconColor}}>
+                className='flex-1 pt-8 p-5 md:w-80 bg-white rounded-xl dark:bg-secondary-dark-bg dark:text-white'>
+                  <div className='rounded-full p-4 text-3xl inline-block opacity-90 hover:drop-shadow-xl' style={{backgroundColor: item.iconBg, color: item.iconColor}}
+                  >
                     {item.icon}
                   </div>
 
@@ -53,7 +55,7 @@ const Ecommerce = () => {
           }
         </div>
 
-        <div className='m-auto mt-5 flex w-[90%] bg-white rounded-xl'>
+        <div className='m-auto mt-5 flex w-[90%] bg-white rounded-xl dark:bg-secondary-dark-bg dark:text-white'>
           <div className='flex-1 p-3 text-1xl font-semibold'>
             <p className='ms-[25%]'> Revenue Update </p>
 
@@ -74,14 +76,14 @@ const Ecommerce = () => {
               </div>
 
               <div>
-                <SparkLine lineChartData={SparklineAreaData} color={"#00C8AE"} axis={false} height='100px' width='200px'/>
+                <SparkLine lineChartData={SparklineAreaData} color={currentColor} axis={false} height='100px' width='200px'/>
               </div>
 
               <div className='mt-5'>
               <Button 
                 text={"Download Report"}
                 color={"white"}
-                bgColor={"blue"}
+                bgColor={currentColor}
                 px={"8px"}
                 py={"12px"}
                 radius={"8px"}

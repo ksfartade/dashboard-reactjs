@@ -12,7 +12,7 @@ import {
 
 const Stacked = ({height, width, stackedChartData}) => {
   return (
-    <div>
+    <div className='dark:bg-secondary-dark-bg'>
       <ChartComponent
       height={height}
       width={width}
@@ -22,6 +22,7 @@ const Stacked = ({height, width, stackedChartData}) => {
       primaryYAxis={{ interval:100, majorGridLines: {width: 1} }}
       tooltip={{ enable: true }}
       legendSettings={{ visible: true }}
+      background="transparent"
     >
       <Inject services={[StackingColumnSeries, Category, Legend, Tooltip]} />
 

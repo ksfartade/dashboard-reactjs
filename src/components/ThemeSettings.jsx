@@ -67,10 +67,10 @@ const ThemeSettings = ({ onClose }) => {
               <div
                 key={index}
                 className='w-8 h-8 rounded-full cursor-pointer flex justify-center items-center border-black dark:border-white' 
-                style={{ backgroundColor: item.color, borderStyle: (currentColor === item.name)? 'solid':'', borderWidth: (currentColor === item.name)? '2px': '' }}
-                onClick={() => setSelectedColor(item.name)}
+                style={{ backgroundColor: item.color, borderStyle: (currentColor === item.color)? 'solid':'', borderWidth: (currentColor === item.color)? '2px': '' }}
+                onClick={() => setSelectedColor(item.color)}
               >
-                {(currentColor === item.name) && <BsCheck className="text-xl text-white"/>}
+                {(currentColor === item.color) && <BsCheck className="text-xl text-white"/>}
                 </div>
             ))}
           </div>

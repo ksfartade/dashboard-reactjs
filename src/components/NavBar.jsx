@@ -12,14 +12,15 @@ import { useEffect } from 'react';
 
 
 function Navbar() {
-  const { state, toggleSidebar, navButtonClick, navButtonClicked } = useAppContext();
+  const { state, toggleSidebar, navButtonClick, navButtonClicked, currentColor } = useAppContext();
   const { isSidebarOpen } = state;
+  console.log("Current color: ", currentColor);
 
   // ⬅️ Universal tooltip button generator
   const navBarIcon = ({ content, callBack, Icon, buttonClass = null }) => {
     return (
       <TooltipComponent content={content}>
-        <button onClick={callBack} className={buttonClass} style={{color: "blue"}}>
+        <button onClick={callBack} className={buttonClass} style={{color: currentColor}}>
           {Icon ? <Icon size={24} /> : null}
         </button>
       </TooltipComponent>
@@ -27,7 +28,7 @@ function Navbar() {
   };
 
   return (
-    <nav className=" dark:bg-main-dark-bg p-4 ps-10 flex justify-between items-center shadow-md">
+    <nav className=" dark:bg-main-dark-bg dark:text-white p-4 ps-10 flex justify-between items-center shadow-md">
       {/* Left Side: List and Search Icons */}
       <div className="flex items-center gap-[3vw]">
         {!isSidebarOpen &&

@@ -22,7 +22,7 @@ import {
 import { useAppContext } from "./contexts/ContextProvider";
 
 function App() {
-  const { state, toggleSidebar, showSettings, setShowSettings} = useAppContext();
+  const { state, toggleSidebar, showSettings, setShowSettings, currentColor} = useAppContext();
   const { isSidebarOpen } = state;
 
   const [screenWidth, setScreenWidth] = useState(0);
@@ -41,12 +41,12 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <div className="relative bg-gray-50">
+        <div className="relative bg-gray-50 dark:bg-main-dark-bg">
           <div className="fixed right-5 bottom-4" style={{ zIndex: "1000" }}>
             <TooltipComponent content="Settings">
               <button
                 className="text-3xl p-3 hover:drop-shadow-2xl text-white rounded-full flex items-center justify-center"
-                style={{ background: "blue" }}
+                style={{ background: currentColor }}
                 onClick={() => {
                   setShowSettings((prev) => !prev);
                 }}
@@ -78,7 +78,7 @@ function App() {
               <ThemeSettings onClose={() => setShowSettings(false)} />
             )}
 
-            <div className='flex-1 flex flex-col h-full box-border m-[4vw]'>
+            <div className='flex-1 flex flex-col h-full box-border m-[4vw] '>
               <Routes>
                 {/* Dashboard */}
                 <Route path="/" element={<Ecommerce />} />

@@ -22,7 +22,7 @@ export const ContextProvider = ({ children }) => {
   const [navButtonClick, setNavButtonClick] = useState(initialState);
   const [showSettings, setShowSettings] = useState(false);
   const [theme, setTheme] = useState('light');
-  const [currentColor, setCurrentColor] = useState("");
+  const [currentColor, setCurrentColor] = useState("blue");
   
 
   const setMode = (mode) => {
@@ -34,6 +34,7 @@ export const ContextProvider = ({ children }) => {
 
   const setSelectedColor = (color) => {
     setCurrentColor(color);
+    setShowSettings(false);
     localStorage.setItem('currentColor', color);
   }
 

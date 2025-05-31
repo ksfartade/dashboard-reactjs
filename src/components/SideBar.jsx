@@ -5,10 +5,12 @@ import { SiShopware } from 'react-icons/si';
 import { FaBars } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import {links} from "../data/dummy";
+import { useAppContext } from '../contexts/ContextProvider';
 
 
 
 const SideBar = ({ screenWidth, setIsOpen }) => {
+  const {currentColor} = useAppContext();
 
   const sidebarHandle = () => {
     if(screenWidth < 760){
@@ -17,10 +19,10 @@ const SideBar = ({ screenWidth, setIsOpen }) => {
   };
 
   return (
-    <div className="bg-white shadow-lg z-50 py-8 ps-10 flex flex-col justify-start h-full overflow-y-auto">
+    <div className="bg-white dark:bg-main-dark-bg text-black dark:text-white shadow-lg z-50 py-8 ps-10 flex flex-col justify-start h-full overflow-y-auto">
       <div className="flex items-center justify-between mb-6 me-2">
-        <NavLink to='/' onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-3xl text-black">
-            <SiShopware /> <span className='text-xl text-black font-bold'> Shoppy </span>
+        <NavLink to='/' onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-3xl ">
+            <SiShopware /> <span className='text-xl font-bold'> Shoppy </span>
         </NavLink>
         <TooltipComponent content="close">
           <button
@@ -50,10 +52,14 @@ const SideBar = ({ screenWidth, setIsOpen }) => {
                   className={({ isActive }) =>
                     `flex items-center gap-4 p-2 me-2 mb-5 rounded-lg transition-colors ${
                       isActive
-                        ? 'bg-pink-600 text-white'
-                        : 'hover:bg-gray-100'
+                        ? 'text-white'
+                        : 'hover:bg-gray-100 hover:text-black'
                     }`
                   }
+                  style={({isActive}) => ({
+                    backgroundColor: isActive? currentColor: ''
+                    }
+                  )}
                 >
                   <span className="text-xl ">{item.icon}</span>
                   <span className="text-md font-medium capitalize">{item.name}</span>
