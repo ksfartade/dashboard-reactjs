@@ -64,7 +64,7 @@ function App() {
 
           {/* Main Content (Navbar + Routes) */}
           <div
-            className={`w-[100%] min-h-screen pl-${isSidebarOpen? '[350px]': '0'} transition-all duration-[500ms] ease-in-out flex flex-col`}
+            className={`w-[100%] min-h-screen transition-all duration-[500ms] ease-in-out flex flex-col`}
             style={{ 
               paddingLeft: isSidebarOpen? '350px': '0px',
               transitionProperty: "padding-left" 
